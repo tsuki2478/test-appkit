@@ -3,6 +3,7 @@
 import { useAccount } from 'wagmi';
 import { useAppKitAccount } from '@reown/appkit';
 import { useEffect, useState } from 'react';
+import React from 'react';
 
 export default function Home() {
   const { isConnected: wagmiConnected } = useAccount();
