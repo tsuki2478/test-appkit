@@ -13,6 +13,7 @@ import {
 import { scroll } from '@reown/appkit/networks';
 import { coinbaseWallet, injected, walletConnect } from 'wagmi/connectors';
 import { WagmiAdapter } from '@reown/appkit-adapter-wagmi';
+import { createAppKit } from '@reown/appkit/react';
 
 export const projectId = '1234';
 
@@ -46,6 +47,20 @@ const wagmiAdapter = new WagmiAdapter({
 });
 
 const queryClient = new QueryClient();
+
+createAppKit({
+  adapters: [wagmiAdapter],
+  networks: [scroll],
+  projectId,
+  allowUnsupportedChain: true,
+
+  features: {
+    swaps: false,
+    analytics: false,
+    onramp: false,
+  },
+  themeMode: 'dark',
+});
 
 export default function Web3ModalProvider({
   children,
