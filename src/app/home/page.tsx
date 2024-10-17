@@ -1,3 +1,5 @@
+'use client';
+
 import { useAccount } from 'wagmi';
 import { useAppKitAccount } from '@reown/appkit';
 import { useEffect, useState } from 'react';
